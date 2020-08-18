@@ -3,9 +3,60 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend - API", "Backend - API", "{B06B0E36-BFA7-48A4-80AE-D3798AD87EDD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend - WPF", "Frontend - WPF", "{0F9473A2-C5F1-4F12-954A-1ABF0726A8CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{AA88B2DC-A141-423A-83C8-FC9EBC2EA941}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugReporterApi", "BugReporterApi\BugReporterApi.csproj", "{5AE5DB13-0190-4044-BBF4-C1370EB7DF6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugReporterUI", "BugReporterUI\BugReporterUI.csproj", "{37528CAB-141F-46E6-A2D9-8FCBC4649150}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BugReporterData", "BugReporterData\BugReporterData.sqlproj", "{51DEB353-295B-4D47-9C66-2DB8D16BFB1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiBR.Library", "ApiBR.Library\ApiBR.Library.csproj", "{E3DD1E4D-9BA1-4B75-BB0C-9630AC092932}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFBR.Library", "WPFBR.Library\WPFBR.Library.csproj", "{D93D7C4B-AC30-4CBD-83D1-6C0C04A2D8E1}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AE5DB13-0190-4044-BBF4-C1370EB7DF6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AE5DB13-0190-4044-BBF4-C1370EB7DF6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AE5DB13-0190-4044-BBF4-C1370EB7DF6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AE5DB13-0190-4044-BBF4-C1370EB7DF6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37528CAB-141F-46E6-A2D9-8FCBC4649150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37528CAB-141F-46E6-A2D9-8FCBC4649150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37528CAB-141F-46E6-A2D9-8FCBC4649150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37528CAB-141F-46E6-A2D9-8FCBC4649150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51DEB353-295B-4D47-9C66-2DB8D16BFB1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51DEB353-295B-4D47-9C66-2DB8D16BFB1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51DEB353-295B-4D47-9C66-2DB8D16BFB1E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{51DEB353-295B-4D47-9C66-2DB8D16BFB1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51DEB353-295B-4D47-9C66-2DB8D16BFB1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51DEB353-295B-4D47-9C66-2DB8D16BFB1E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E3DD1E4D-9BA1-4B75-BB0C-9630AC092932}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3DD1E4D-9BA1-4B75-BB0C-9630AC092932}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3DD1E4D-9BA1-4B75-BB0C-9630AC092932}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3DD1E4D-9BA1-4B75-BB0C-9630AC092932}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D93D7C4B-AC30-4CBD-83D1-6C0C04A2D8E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D93D7C4B-AC30-4CBD-83D1-6C0C04A2D8E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D93D7C4B-AC30-4CBD-83D1-6C0C04A2D8E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D93D7C4B-AC30-4CBD-83D1-6C0C04A2D8E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5AE5DB13-0190-4044-BBF4-C1370EB7DF6D} = {B06B0E36-BFA7-48A4-80AE-D3798AD87EDD}
+		{37528CAB-141F-46E6-A2D9-8FCBC4649150} = {0F9473A2-C5F1-4F12-954A-1ABF0726A8CF}
+		{51DEB353-295B-4D47-9C66-2DB8D16BFB1E} = {AA88B2DC-A141-423A-83C8-FC9EBC2EA941}
+		{E3DD1E4D-9BA1-4B75-BB0C-9630AC092932} = {B06B0E36-BFA7-48A4-80AE-D3798AD87EDD}
+		{D93D7C4B-AC30-4CBD-83D1-6C0C04A2D8E1} = {0F9473A2-C5F1-4F12-954A-1ABF0726A8CF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5081C333-F85E-42A5-98E7-FEE7418CC917}
