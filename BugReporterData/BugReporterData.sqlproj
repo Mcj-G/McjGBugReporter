@@ -62,4 +62,13 @@
     <Folder Include="dbo\Views" />
     <Folder Include="dbo\Stored Procedures" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Bug.sql" />
+    <Build Include="dbo\Tables\User.sql" />
+    <Build Include="dbo\Tables\Project.sql" />
+    <Build Include="dbo\Tables\Category.sql" />
+    <Build Include="dbo\Tables\Priority.sql" />
+    <Build Include="dbo\Tables\Status.sql" />
+    <Build Include="dbo\Tables\Frequency.sql" />
+  </ItemGroup>
 </Project>
