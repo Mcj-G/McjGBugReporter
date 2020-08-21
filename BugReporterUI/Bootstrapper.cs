@@ -1,4 +1,5 @@
-﻿using BugReporterUI.ViewModels;
+﻿using BugReporterUI.Helpers;
+using BugReporterUI.ViewModels;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace BugReporterUI
 {
@@ -15,6 +17,11 @@ namespace BugReporterUI
         public Bootstrapper()
         {
             Initialize();
+
+            ConventionManager.AddElementConvention<PasswordBox>(
+            PasswordBoxHelper.BoundPasswordProperty,
+            "Password",
+            "PasswordChanged");
         }
 
         protected override void Configure()
