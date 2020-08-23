@@ -70,5 +70,9 @@
     <Build Include="dbo\Tables\Priority.sql" />
     <Build Include="dbo\Tables\Status.sql" />
     <Build Include="dbo\Tables\Frequency.sql" />
+    <Build Include="dbo\Stored Procedures\spUser_GetById.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Publish Locations\BugReporterData.publish.xml" />
   </ItemGroup>
 </Project>

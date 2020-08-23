@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using WPFBR.Library.API;
+using WPFBR.Library.Models;
 
 namespace BugReporterUI
 {
@@ -30,7 +32,9 @@ namespace BugReporterUI
 
             _container
                 .Singleton<IWindowManager, WindowManager>()
-                .Singleton<IEventAggregator, EventAggregator>();
+                .Singleton<IEventAggregator, EventAggregator>()
+                .Singleton<ILoggedInUserModel, LoggedInUserModel>()
+                .Singleton<IAPIHelper, APIHelper>();
 
             GetType().Assembly.GetTypes()
                 .Where(type => type.IsClass)
