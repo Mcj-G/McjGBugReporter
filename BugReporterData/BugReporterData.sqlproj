@@ -71,6 +71,11 @@
     <Build Include="dbo\Tables\Status.sql" />
     <Build Include="dbo\Tables\Frequency.sql" />
     <Build Include="dbo\Stored Procedures\spUser_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\spStatus_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spProject_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spCategory_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spFrequency_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spPriority_GetAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Publish Locations\BugReporterData.publish.xml" />

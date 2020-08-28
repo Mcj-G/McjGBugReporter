@@ -9,7 +9,8 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top" FontSize="18">
             <MenuItem Header="_File">
-                
+                <MenuItem x:Name="BackToMainView" Header="_Back to Main View" />
+                <MenuItem x:Name="ExitApplication" Header="E_xit" />
             </MenuItem>
             <MenuItem Header="_Account">
                 <MenuItem x:Name="LoginScreen" Header="_Log In" />
