@@ -37,23 +37,51 @@
         <TextBlock Grid.Row="2" Grid.Column="1" Margin="15">
             Project: 
         </TextBlock>
-        <ComboBox x:Name="ProjectList" Grid.Row="2" Grid.Column="2" MinWidth="250" Margin="15"></ComboBox>
+        <ComboBox x:Name="ProjectList" Grid.Row="2" Grid.Column="2" MinWidth="250" Margin="15"
+                  FontSize="20">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
         <TextBlock Grid.Row="2" Grid.Column="3" Margin="15">
             Category:
         </TextBlock>
-        <ComboBox x:Name="CategoryList" Grid.Row="2" Grid.Column="4" MinWidth="250" Margin="15"></ComboBox>
+        <ComboBox x:Name="CategoryList" Grid.Row="2" Grid.Column="4" MinWidth="250" Margin="15"
+                  FontSize="20">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
         
         <!--Row 3-->
         <TextBlock Grid.Row="3" Grid.Column="1" Margin="15">
             Priority: 
         </TextBlock>
-        <ComboBox x:Name="PriorityList" Grid.Row="3" Grid.Column="2" MinWidth="250" Margin="15"></ComboBox>
+        <ComboBox x:Name="PriorityList" Grid.Row="3" Grid.Column="2" MinWidth="250" Margin="15"
+                  FontSize="20">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
         <TextBlock Grid.Row="3" Grid.Column="3" Margin="15">
             Frequency: 
         </TextBlock>
-        <ComboBox x:Name="FrequencyList" Grid.Row="3" Grid.Column="4" MinWidth="250" Margin="15"></ComboBox>
+        <ComboBox x:Name="FrequencyList" Grid.Row="3" Grid.Column="4" MinWidth="250" Margin="15"
+                  FontSize="20">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
         <!--Row 4-->
         <TextBlock Grid.Row="4" Grid.Column="1" Margin="15">

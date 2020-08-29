@@ -28,7 +28,8 @@ namespace BugReporterUI
 
         protected override void Configure()
         {
-            _container.Instance(_container);
+            _container.Instance(_container)
+                .PerRequest<IListsEndpoint, ListsEndpoint>();
 
             _container
                 .Singleton<IWindowManager, WindowManager>()

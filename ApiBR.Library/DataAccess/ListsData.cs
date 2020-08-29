@@ -13,8 +13,6 @@ namespace ApiBR.Library.DataAccess
         {
             SqlDataAccess sql = new SqlDataAccess();
 
-
-            var statusList = sql.LoadData<StatusModel, dynamic>("dbo.spStatus_GetAll", new { }, "BRData");
             var categoryList = sql.LoadData<CategoryModel, dynamic>("dbo.spCategory_GetAll", new { }, "BRData");
             var frequencyList = sql.LoadData<FrequencyModel, dynamic>("dbo.spFrequency_GetAll", new { }, "BRData");
             var priorityList = sql.LoadData<PriorityModel, dynamic>("dbo.spPriority_GetAll", new { }, "BRData");
@@ -22,7 +20,6 @@ namespace ApiBR.Library.DataAccess
 
             ListsModel output = new ListsModel
             {
-                StatusList = statusList,
                 CategoryList = categoryList,
                 FrequencyList = frequencyList,
                 PriorityList = priorityList,
