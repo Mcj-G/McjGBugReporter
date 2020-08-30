@@ -49,10 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\APIHelper.cs" />
+    <Compile Include="API\BugEndpoint.cs" />
     <Compile Include="API\IAPIHelper.cs" />
+    <Compile Include="API\IBugEndpoint.cs" />
     <Compile Include="API\IListsEndpoint.cs" />
     <Compile Include="API\ListsEndpoint.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
+    <Compile Include="Models\BugModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\FrequencyModel.cs" />
     <Compile Include="Models\ILoggedInUserModel.cs" />

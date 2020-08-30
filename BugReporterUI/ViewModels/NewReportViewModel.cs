@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WPFBR.Library.API;
 using WPFBR.Library.Models;
 
@@ -13,10 +14,12 @@ namespace BugReporterUI.ViewModels
     public class NewReportViewModel : Screen
     {
         private IListsEndpoint _listsEndpoint;
+        private IBugEndpoint _bugEndpoint;
 
-        public NewReportViewModel(IListsEndpoint listsEndpoint)
+        public NewReportViewModel(IListsEndpoint listsEndpoint, IBugEndpoint bugEndpoint)
         {
             _listsEndpoint = listsEndpoint;
+            _bugEndpoint = bugEndpoint;
         }
 
         protected override async void OnViewLoaded(object view)
@@ -167,10 +170,38 @@ namespace BugReporterUI.ViewModels
 
         public async Task Submit()
         {
+            BugModel bug = new BugModel
+            {
+                Id = 0,
+                ProjectId = SelectedProject.Id,
+                CategoryId = SelectedCategory.Id,
+                PriorityId = SelectedPriority.Id,
+                Topic = Topic,
+                Description = Description,
+                FrequencyId = SelectedFrequency.Id,
+                CreatedDate = DateTime.Now
+            };
 
+            await _bugEndpoint.PostBug(bug);
+
+            MessageBox.Show("Bug reported!", "Mcjg Bug Reporter", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            await ResetThisViewModel();
         }
 
-
+        private async Task ResetThisViewModel()
+        {
+            await LoadLists();
+            Topic = "";
+            Description = "";
+            NotifyOfPropertyChange(() => Topic);
+            NotifyOfPropertyChange(() => Description);
+            NotifyOfPropertyChange(() => SelectedCategory);
+            NotifyOfPropertyChange(() => SelectedFrequency);
+            NotifyOfPropertyChange(() => SelectedPriority);
+            NotifyOfPropertyChange(() => SelectedProject);
+            NotifyOfPropertyChange(() => CanSubmit);
+        }
 
 
     }

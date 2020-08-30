@@ -76,6 +76,7 @@
     <Build Include="dbo\Stored Procedures\spCategory_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\spFrequency_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\spPriority_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spBug_Insert.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Publish Locations\BugReporterData.publish.xml" />
