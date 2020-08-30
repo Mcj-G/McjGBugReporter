@@ -44,6 +44,18 @@ namespace BugReporterUI.ViewModels
                 NotifyOfPropertyChange(() => ProjectList);
             }
         }
+        private ProjectModel _selectedProject;
+        public ProjectModel SelectedProject
+        {
+            get { return _selectedProject; }
+            set 
+            { 
+                _selectedProject = value;
+                NotifyOfPropertyChange(() => SelectedProject);
+                NotifyOfPropertyChange(() => CanSubmit);
+            }
+        }
+
 
         private BindingList<CategoryModel> _categoryList;
         public BindingList<CategoryModel> CategoryList
@@ -55,6 +67,17 @@ namespace BugReporterUI.ViewModels
                 NotifyOfPropertyChange(() => CategoryList);
             }
         }
+        private CategoryModel _selectedCategory;
+        public CategoryModel SelectedCategory
+        {
+            get { return _selectedCategory; }
+            set
+            {
+                _selectedCategory = value;
+                NotifyOfPropertyChange(() => SelectedCategory);
+                NotifyOfPropertyChange(() => CanSubmit);
+            }
+        }
 
         private BindingList<PriorityModel> _priorityList;
         public BindingList<PriorityModel> PriorityList
@@ -64,6 +87,17 @@ namespace BugReporterUI.ViewModels
             { 
                 _priorityList = value;
                 NotifyOfPropertyChange(() => PriorityList);
+            }
+        }
+        private PriorityModel _selectedPriority;
+        public PriorityModel SelectedPriority
+        {
+            get { return _selectedPriority; }
+            set
+            {
+                _selectedPriority = value;
+                NotifyOfPropertyChange(() => SelectedPriority);
+                NotifyOfPropertyChange(() => CanSubmit);
             }
         }
 
@@ -78,8 +112,63 @@ namespace BugReporterUI.ViewModels
                 NotifyOfPropertyChange(() => FrequencyList);
             }
         }
+        private FrequencyModel _selectedFrequency;
+        public FrequencyModel SelectedFrequency
+        {
+            get { return _selectedFrequency; }
+            set
+            {
+                _selectedFrequency = value;
+                NotifyOfPropertyChange(() => SelectedFrequency);
+                NotifyOfPropertyChange(() => CanSubmit);
+            }
+        }
 
+        private string _topic;
+        public string Topic
+        {
+            get { return _topic; }
+            set 
+            { 
+                _topic = value;
+                NotifyOfPropertyChange(() => Topic);
+                NotifyOfPropertyChange(() => CanSubmit);
+            }
+        }
 
+        private string _description;
+        public string Description
+        {
+            get { return _description; }
+            set 
+            { 
+                _description = value;
+                NotifyOfPropertyChange(() => Description);
+                NotifyOfPropertyChange(() => CanSubmit);
+            }
+        }
+
+        public bool CanSubmit 
+        {
+            get
+            {
+                bool output = false;
+
+                if (SelectedProject != null && SelectedFrequency != null &&
+                    SelectedCategory !=null && SelectedPriority != null &&
+                    Topic?.Length > 0 && Description?.Length > 0)
+                {
+                    output = true;
+                }
+
+                return output;
+            }
+        }
+
+        public async Task Submit()
+        {
+
+        }
 
 
 

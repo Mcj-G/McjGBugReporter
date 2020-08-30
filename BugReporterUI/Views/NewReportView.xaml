@@ -38,7 +38,7 @@
             Project: 
         </TextBlock>
         <ComboBox x:Name="ProjectList" Grid.Row="2" Grid.Column="2" MinWidth="250" Margin="15"
-                  FontSize="20">
+                  FontSize="20" SelectedItem="{Binding SelectedProject}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name}" />
@@ -50,7 +50,7 @@
             Category:
         </TextBlock>
         <ComboBox x:Name="CategoryList" Grid.Row="2" Grid.Column="4" MinWidth="250" Margin="15"
-                  FontSize="20">
+                  FontSize="20" SelectedItem="{Binding SelectedCategory}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name}" />
@@ -63,7 +63,7 @@
             Priority: 
         </TextBlock>
         <ComboBox x:Name="PriorityList" Grid.Row="3" Grid.Column="2" MinWidth="250" Margin="15"
-                  FontSize="20">
+                  FontSize="20" SelectedItem="{Binding SelectedPriority}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name}" />
@@ -75,7 +75,7 @@
             Frequency: 
         </TextBlock>
         <ComboBox x:Name="FrequencyList" Grid.Row="3" Grid.Column="4" MinWidth="250" Margin="15"
-                  FontSize="20">
+                  FontSize="20" SelectedItem="{Binding SelectedFrequency}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name}" />
