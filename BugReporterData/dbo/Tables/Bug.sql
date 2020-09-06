@@ -10,7 +10,7 @@
     [FrequencyId] INT NOT NULL,
     [AssignedUserId] NVARCHAR(128) NULL, 
     [CreatedDate] DATETIME2 NOT NULL, 
-    [LastModificationDate] DATETIME2 NULL, 
+    [LastModificationDate] DATETIME2 NULL DEFAULT getdate(), 
     CONSTRAINT [FK_Bug_ToProject] FOREIGN KEY ([ProjectId]) REFERENCES [Project]([Id]), 
     CONSTRAINT [FK_Bug_ToCategory] FOREIGN KEY ([CategoryId]) REFERENCES [Category]([Id]), 
     CONSTRAINT [FK_Bug_ToPriority] FOREIGN KEY ([PriorityId]) REFERENCES [Priority]([Id]), 

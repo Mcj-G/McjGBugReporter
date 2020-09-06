@@ -9,6 +9,15 @@ namespace ApiBR.Library.DataAccess
 {
     public class BugData
     {
+        public List<BugDisplayModel> LoadBugs()
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+
+            var output = sql.LoadData<BugDisplayModel, dynamic>("dbo.spBug_GetAll", new { }, "BRData");
+
+            return output;
+        }
+
         public void SaveBug(BugModel bug)
         {
             SqlDataAccess sql = new SqlDataAccess();

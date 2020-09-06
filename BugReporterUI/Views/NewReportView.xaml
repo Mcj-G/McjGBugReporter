@@ -87,14 +87,16 @@
         <TextBlock Grid.Row="4" Grid.Column="1" Margin="15">
             Topic: 
         </TextBlock>
-        <TextBox x:Name="Topic" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3" Margin="15"></TextBox>
+        <TextBox x:Name="Topic" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3" Margin="15"
+                 MaxWidth="750"></TextBox>
 
         <!--Row 5-->
         <TextBlock Grid.Row="5" Grid.Column="1" Margin="15">
             Description: 
         </TextBlock>
         <TextBox x:Name="Description" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="2"
-                 MinHeight="250" Margin="15"></TextBox>
+                 MinHeight="250" Margin="15" MaxHeight="280" MaxWidth="750" 
+                 VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" ></TextBox>
 
         <Button x:Name="Submit" Grid.Row="6" Grid.Column="1" Width="130" Height="80">
             Submit

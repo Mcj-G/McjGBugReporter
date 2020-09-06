@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BugReporterUI.Views"
-        mc:Ignorable="d" FontSize="18"
+        mc:Ignorable="d" FontSize="18" WindowStartupLocation="CenterScreen"
         Title="ShellView" Height="720" Width="1280">
     <DockPanel>
         <Menu DockPanel.Dock="Top" FontSize="18">

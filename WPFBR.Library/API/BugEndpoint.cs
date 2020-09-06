@@ -17,6 +17,22 @@ namespace WPFBR.Library.API
             _apiHelper = apiHelper;
         }
 
+        public async Task<List<BugDisplayModel>> GetAll()
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Bug"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<List<BugDisplayModel>>();
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
         public async Task PostBug(BugModel bug)
         {
             using (HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync("api/Bug", bug))

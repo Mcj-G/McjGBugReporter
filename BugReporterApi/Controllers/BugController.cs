@@ -12,6 +12,12 @@ namespace BugReporterApi.Controllers
     [Authorize]
     public class BugController : ApiController
     {
+        public List<BugDisplayModel> Get()
+        {
+            BugData data = new BugData();
+            var output = data.LoadBugs();
+            return output;
+        }
         public void Post(BugModel bug)
         {
             BugData data = new BugData();

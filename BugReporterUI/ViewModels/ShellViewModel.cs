@@ -8,19 +8,22 @@ using Caliburn.Micro;
 
 namespace BugReporterUI.ViewModels
 {
-    public class ShellViewModel : Conductor<object>, IHandle<LogOnEvent>, IHandle<NewReportEvent>
+    public class ShellViewModel : Conductor<object>, IHandle<LogOnEvent>, IHandle<NewReportEvent>, IHandle<ReportListEvent>
     {
         private IEventAggregator _events;
         private MainViewModel _mainVM;
         private NewReportViewModel _newReportVM;
+        private ReportListViewModel _reportListVM;
         private SimpleContainer _container;
 
         public ShellViewModel(IEventAggregator events, MainViewModel mainVM,
-            NewReportViewModel newReportVM, SimpleContainer container)
+            NewReportViewModel newReportVM, ReportListViewModel reportListVM,
+            SimpleContainer container)
         {
             _events = events;
             _mainVM = mainVM;
             _newReportVM = newReportVM;
+            _reportListVM = reportListVM;
             _container = container;
 
             _events.Subscribe(this);
@@ -46,6 +49,11 @@ namespace BugReporterUI.ViewModels
         public void Handle(NewReportEvent message)
         {
             ActivateItem(_newReportVM);
+        }
+
+        public void Handle(ReportListEvent message)
+        {
+            ActivateItem(_reportListVM);
         }
     }
 }

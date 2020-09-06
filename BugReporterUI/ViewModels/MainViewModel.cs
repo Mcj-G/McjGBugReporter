@@ -22,17 +22,17 @@ namespace BugReporterUI.ViewModels
             _events.PublishOnUIThread(new NewReportEvent());
         }
 
-        public async Task ReportList()
+        public void ReportList()
+        {
+            _events.PublishOnUIThread(new ReportListEvent());
+        }
+
+        public void YourCases()
         {
 
         }
 
-        public async Task YourCases()
-        {
-
-        }
-
-        public async Task Manage()
+        public void Manage()
         {
 
         }

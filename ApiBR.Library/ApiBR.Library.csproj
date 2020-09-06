@@ -49,6 +49,7 @@
     <Compile Include="DataAccess\ListsData.cs" />
     <Compile Include="DataAccess\SqlDataAccess.cs" />
     <Compile Include="DataAccess\UserData.cs" />
+    <Compile Include="Models\BugDisplayModel.cs" />
     <Compile Include="Models\BugModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\FrequencyModel.cs" />
