@@ -25,7 +25,8 @@
 
         <DataGrid x:Name="Reports" Grid.Row="2" Grid.Column="1" MinWidth="800" MinHeight="500"
                   IsReadOnly="True" MaxWidth="950" MaxHeight="600"
-                  AutoGenerateColumns="False" HorizontalScrollBarVisibility="Auto" CanUserSortColumns="True">
+                  AutoGenerateColumns="False" HorizontalScrollBarVisibility="Auto" CanUserSortColumns="True"
+                  SelectedItem="{Binding SelectedReport}" SelectionUnit="FullRow">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Project" Binding="{Binding ProjectName}"/>
@@ -45,7 +46,7 @@
             <Button x:Name="ApplyFilter" Margin="10">Apply filter</Button>
         </StackPanel>
 
-        <Button x:Name="OpernSelected" Grid.Row="2" Grid.Column="2" Margin="10" 
+        <Button x:Name="OpenSelected" Grid.Row="2" Grid.Column="2" Margin="10" 
                 MaxHeight="100">Open selected</Button>
         
     </Grid>

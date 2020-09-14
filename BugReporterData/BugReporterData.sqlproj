@@ -78,6 +78,9 @@
     <Build Include="dbo\Stored Procedures\spPriority_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\spBug_Insert.sql" />
     <Build Include="dbo\Stored Procedures\spBug_GetAll.sql" />
+    <Build Include="dbo\Tables\Comment.sql" />
+    <Build Include="dbo\Stored Procedures\spComment_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spComment_GetById.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Publish Locations\BugReporterData.publish.xml" />

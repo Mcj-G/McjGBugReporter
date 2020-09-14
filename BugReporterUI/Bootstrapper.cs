@@ -30,7 +30,8 @@ namespace BugReporterUI
         {
             _container.Instance(_container)
                 .PerRequest<IListsEndpoint, ListsEndpoint>()
-                .PerRequest<IBugEndpoint, BugEndpoint>();
+                .PerRequest<IBugEndpoint, BugEndpoint>()
+                .PerRequest<ICommentEndpoint, CommentEndpoint>();
 
             _container
                 .Singleton<IWindowManager, WindowManager>()

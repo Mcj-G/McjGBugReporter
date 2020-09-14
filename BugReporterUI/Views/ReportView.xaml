@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="BugReporterUI.Views.ReportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BugReporterUI.Views"
+             mc:Ignorable="d" Background="WhiteSmoke" FontSize="24"
+             d:DesignHeight="720" d:DesignWidth="1280">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="0 0 0 10">
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                <TextBlock Text="Report Id: " />
+                <TextBlock Background="White" FontWeight="DemiBold" Text="{Binding Path=Report.Id}" Margin="0 0 15 0" />
+                <TextBlock Text="Project: " />
+                <TextBlock Background="White" FontWeight="DemiBold" Text="{Binding Path=Report.ProjectName}" Margin="0 0 15 0" />
+                <TextBlock Text="Version: " />
+                <TextBlock Background="White" FontWeight="DemiBold" Text="{Binding Path=Report.ProjectVersion}" Margin="0 0 15 0" />
+                <TextBlock Text="Report status: " />
+                <TextBlock Background="White" FontWeight="DemiBold" Text="{Binding Path=Report.StatusName}" Margin="0 0 15 0" />
+                <TextBlock Text="Created : " />
+                <TextBlock Background="White" FontWeight="DemiBold" Text="{Binding Path=Report.CreatedDate, StringFormat=d/M/yyyy hh:mm}" Margin="0 0 15 0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                <TextBlock Text="Priority: " />
+                <TextBlock Background="White" FontWeight="DemiBold" Text="{Binding Path=Report.PriorityName}" Margin="0 0 15 0" />
+                <TextBlock Text="Category: " />
+                <TextBlock Background="White" FontWeight="DemiBold" Text="{Binding Path=Report.CategoryName}" Margin="0 0 15 0" />
+                <TextBlock Text="Frequency: " />
+                <TextBlock Background="White" FontWeight="DemiBold" Text="{Binding Path=Report.FrequencyName}" Margin="0 0 15 0" />
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                <TextBlock Text="Last modification: " />
+                <TextBlock Background="White" FontWeight="DemiBold" Text="{Binding Path=Report.LastModificationDate, StringFormat=d/M/yyyy hh:mm}" Margin="0 0 15 0" />
+                <TextBlock Text="Assigned : " />
+                <TextBlock Background="White" FontWeight="DemiBold" Text="{Binding Path=Report.AssignedUserMail}" Margin="0 0 15 0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                <TextBlock Text="Topic: " />
+                <TextBlock Background="White" FontWeight="DemiBold" Text="{Binding Path=Report.Topic}" />
+            </StackPanel>
+            <TextBlock Text="Description of issue: " />
+            <TextBlock MaxHeight="100" MaxWidth="1000" TextWrapping="Wrap" Text="{Binding Path=Report.Description}" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
+            <TextBlock Text="Comments: " />
+            <ScrollViewer Background="White" MaxWidth="1000" MaxHeight="200" VerticalScrollBarVisibility="Visible">
+                <ItemsControl x:Name="CommentsList">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBox IsReadOnly="True" TextWrapping="Wrap" MaxWidth="1000" Text="{Binding Content}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+            <TextBlock Text="New comment: " />
+            <TextBox x:Name="NewComment" MaxWidth="1000" TextWrapping="Wrap" MaxHeight="100" VerticalScrollBarVisibility="Auto"/>
+        </StackPanel>
+        
+        <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="4" Grid.RowSpan="2" Margin="10 0 0 0">
+            <Button x:Name="BackToAll" MinHeight="50" Content="Back to all" Margin="5 5 5 30" />
+            <Button x:Name="Assign" MinHeight="50" Content="Assign yourself" Margin="5" />
+            <Button x:Name="YourCases" MinHeight="50" Content="Your cases" Margin="5 5 5 30" />
+            <ComboBox x:Name="StatusList" Margin="5">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button x:Name="ChangeStatus" MinHeight="50" Content="Change status" Margin="5 5 5 30" />
+            <Button x:Name="AddComment" MinHeight="50" Content="Add comment" Margin="5" />
+        </StackPanel>
+            
+    </Grid>
+</UserControl>

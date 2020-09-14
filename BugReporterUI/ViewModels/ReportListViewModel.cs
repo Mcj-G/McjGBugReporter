@@ -1,4 +1,6 @@
-﻿using Caliburn.Micro;
+﻿using BugReporterUI.EventModels;
+using BugReporterUI.Views;
+using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +15,12 @@ namespace BugReporterUI.ViewModels
     public class ReportListViewModel :Screen
     {
         private IBugEndpoint _bugEndpoint;
-        public ReportListViewModel(IBugEndpoint bugEndpoint)
+        private IEventAggregator _events;
+
+        public ReportListViewModel(IBugEndpoint bugEndpoint, IEventAggregator events)
         {
             _bugEndpoint = bugEndpoint;
+            _events = events;
         }
 
         protected override async void OnViewLoaded(object view)
@@ -42,6 +47,38 @@ namespace BugReporterUI.ViewModels
             }
         }
 
+        private BugDisplayModel _selectedReport;
+        public BugDisplayModel SelectedReport
+        {
+            get { return _selectedReport; }
+            set 
+            { 
+                _selectedReport = value;
+                NotifyOfPropertyChange(() => SelectedReport);
+                NotifyOfPropertyChange(() => CanOpenSelected);
+
+            }
+        }
+
+        public bool CanOpenSelected
+        {
+            get
+            {
+                bool output = false;
+                if (SelectedReport != null)
+                {
+                    output = true;
+                }
+                return output;
+            }
+        }
+
+        public void OpenSelected()
+        {
+            _events.PublishOnUIThread(new OpenReportEvent { Report = SelectedReport });
+        }
+
+
         private List<string> _filterCB;
         public List<string> FilterCB
         {
@@ -64,8 +101,6 @@ namespace BugReporterUI.ViewModels
                 NotifyOfPropertyChange(() => FilterCB);
             }
         }
-
-
 
         private string _filter;
         public string Filter
