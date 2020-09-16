@@ -15,12 +15,16 @@ namespace BugReporterUI.ViewModels
     {
         private IEventAggregator _events;
         private ICommentEndpoint _commentEndpoint;
+        private IStatusEndpoint _statusEndpoint;
+        private IBugEndpoint _bugEndpoint;
 
-        public ReportViewModel(IEventAggregator events, ICommentEndpoint commentEndpoint)
+        public ReportViewModel(IEventAggregator events, ICommentEndpoint commentEndpoint,
+            IStatusEndpoint statusEndpoint, IBugEndpoint bugEndpoint)
         {
             _events = events;
             _commentEndpoint = commentEndpoint;
-
+            _statusEndpoint = statusEndpoint;
+            _bugEndpoint = bugEndpoint;
             _events.Subscribe(this);
         }
 
@@ -34,6 +38,14 @@ namespace BugReporterUI.ViewModels
         private async Task LoadData()
         {
             CommentsList = await _commentEndpoint.GetById(Report.Id);
+            StatusList = await _statusEndpoint.GetAll();
+            StatusList = StatusList.Where(x => x.Name != "New").ToList();
+        }
+
+        private async Task RefreshReport()
+        {
+            var reportList = await _bugEndpoint.GetAll();
+            Report = reportList.Where(x => x.Id == Report.Id).FirstOrDefault();
         }
 
         private BugDisplayModel _report;
@@ -47,8 +59,8 @@ namespace BugReporterUI.ViewModels
             }
         }
 
-        private List<string> _statusList;
-        public List<string> StatusList
+        private List<StatusModel> _statusList;
+        public List<StatusModel> StatusList
         {
             get { return _statusList; }
             set 
@@ -57,6 +69,20 @@ namespace BugReporterUI.ViewModels
                 NotifyOfPropertyChange(() => StatusList);
             }
         }
+
+        private StatusModel _newStatus;
+        public StatusModel NewStatus
+        {
+            get { return _newStatus; }
+            set 
+            { 
+                _newStatus = value;
+                NotifyOfPropertyChange(() => NewStatus);
+                NotifyOfPropertyChange(() => CanChangeStatus);
+            }
+        }
+
+
 
         private string _newComment;
         public string NewComment
@@ -96,9 +122,28 @@ namespace BugReporterUI.ViewModels
 
         }
 
-        public void ChangeStatus()
-        {
+        public bool CanChangeStatus 
+        { 
+            get
+            {
+                bool output = false;
 
+                if (NewStatus != null)
+                {
+                    output = true;
+                }
+
+                return output;
+            }
+        }
+        public async Task ChangeStatus()
+        {
+            await _statusEndpoint.UpdateStatus(Report.Id, NewStatus.Id);
+
+            MessageBox.Show("Status changed!", "Mcjg Bug Reporter", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            await LoadData();
+            await RefreshReport();
         }
 
         public bool CanAddComment 
@@ -106,7 +151,7 @@ namespace BugReporterUI.ViewModels
             get
             {
                 bool output = false;
-                if (NewComment != null || NewComment != "")
+                if (NewComment != null && NewComment != "")
                 {
                     output = true;
                 }

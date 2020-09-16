@@ -81,6 +81,7 @@
     <Build Include="dbo\Tables\Comment.sql" />
     <Build Include="dbo\Stored Procedures\spComment_Insert.sql" />
     <Build Include="dbo\Stored Procedures\spComment_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\spBug_StatusUpdate.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Publish Locations\BugReporterData.publish.xml" />

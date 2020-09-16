@@ -80,7 +80,7 @@
             <Button x:Name="BackToAll" MinHeight="50" Content="Back to all" Margin="5 5 5 30" />
             <Button x:Name="Assign" MinHeight="50" Content="Assign yourself" Margin="5" />
             <Button x:Name="YourCases" MinHeight="50" Content="Your cases" Margin="5 5 5 30" />
-            <ComboBox x:Name="StatusList" Margin="5">
+            <ComboBox x:Name="StatusList" Margin="5" SelectedItem="{Binding NewStatus}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Name}" />
