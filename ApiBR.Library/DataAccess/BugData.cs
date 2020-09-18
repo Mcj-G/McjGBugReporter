@@ -24,5 +24,14 @@ namespace ApiBR.Library.DataAccess
 
             sql.SaveData("dbo.spBug_Insert", bug, "BRData");
         }
+
+        public void UpdateAssignedUser(List<string> idList)
+        {
+            int bugId = int.Parse(idList[0]);
+            string userId = idList[1];
+            SqlDataAccess sql = new SqlDataAccess();
+
+            sql.SaveData("dbo.spBug_AssignedUserUpdate", new { bugId, userId }, "BRData");
+        }
     }
 }

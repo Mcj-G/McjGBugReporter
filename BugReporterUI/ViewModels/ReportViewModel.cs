@@ -17,14 +17,17 @@ namespace BugReporterUI.ViewModels
         private ICommentEndpoint _commentEndpoint;
         private IStatusEndpoint _statusEndpoint;
         private IBugEndpoint _bugEndpoint;
+        private ILoggedInUserModel _loggedUser;
 
         public ReportViewModel(IEventAggregator events, ICommentEndpoint commentEndpoint,
-            IStatusEndpoint statusEndpoint, IBugEndpoint bugEndpoint)
+            IStatusEndpoint statusEndpoint, IBugEndpoint bugEndpoint,
+            ILoggedInUserModel loggedUser)
         {
             _events = events;
             _commentEndpoint = commentEndpoint;
             _statusEndpoint = statusEndpoint;
             _bugEndpoint = bugEndpoint;
+            _loggedUser = loggedUser;
             _events.Subscribe(this);
         }
 
@@ -112,9 +115,19 @@ namespace BugReporterUI.ViewModels
 
         }
 
-        public void Assign()
+        public async Task Assign()
         {
+            string bugId = Report.Id.ToString();
+            string userId = _loggedUser.Id;
+            List<string> idList = new List<string>
+            {
+                bugId,
+                userId
+            };
 
+            await _bugEndpoint.UpdateAssignedUser(idList);
+
+            await RefreshReport();
         }
 
         public void YourCases()
@@ -142,7 +155,6 @@ namespace BugReporterUI.ViewModels
 
             MessageBox.Show("Status changed!", "Mcjg Bug Reporter", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            await LoadData();
             await RefreshReport();
         }
 

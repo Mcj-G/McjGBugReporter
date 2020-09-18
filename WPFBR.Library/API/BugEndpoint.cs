@@ -47,5 +47,20 @@ namespace WPFBR.Library.API
                 }
             }
         }
+
+        public async Task UpdateAssignedUser(List<string> idList)
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.PutAsJsonAsync("api/Bug", idList))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    // TODO - log it
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
     }
 }

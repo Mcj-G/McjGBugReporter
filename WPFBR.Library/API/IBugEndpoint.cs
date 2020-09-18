@@ -8,5 +8,6 @@ namespace WPFBR.Library.API
     {
         Task PostBug(BugModel bug);
         Task<List<BugDisplayModel>> GetAll();
+        Task UpdateAssignedUser(List<string> idList);
     }
 }

@@ -23,5 +23,11 @@ namespace BugReporterApi.Controllers
             BugData data = new BugData();
             data.SaveBug(bug);
         }
+
+        public void Put(List<string> idList)
+        {
+            BugData data = new BugData();
+            data.UpdateAssignedUser(idList);
+        }
     }
 }
