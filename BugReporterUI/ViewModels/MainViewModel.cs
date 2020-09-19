@@ -29,7 +29,7 @@ namespace BugReporterUI.ViewModels
 
         public void YourCases()
         {
-
+            _events.PublishOnUIThread(new YourCasesEvent());
         }
 
         public void Manage()

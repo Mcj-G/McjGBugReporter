@@ -22,6 +22,6 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-            
+        <TextBlock Text="YourCases" FontSize="40" />
     </Grid>
 </UserControl>

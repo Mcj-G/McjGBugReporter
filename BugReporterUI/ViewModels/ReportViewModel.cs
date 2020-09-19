@@ -112,7 +112,7 @@ namespace BugReporterUI.ViewModels
 
         public void BackToAll()
         {
-
+            _events.PublishOnUIThread(new ReportListEvent());
         }
 
         public async Task Assign()
@@ -127,12 +127,14 @@ namespace BugReporterUI.ViewModels
 
             await _bugEndpoint.UpdateAssignedUser(idList);
 
+            MessageBox.Show("You are now assigned to this case.", "Mcjg Bug Reporter", MessageBoxButton.OK, MessageBoxImage.Information);
+
             await RefreshReport();
         }
 
         public void YourCases()
         {
-
+            _events.PublishOnUIThread(new YourCasesEvent());
         }
 
         public bool CanChangeStatus 
