@@ -22,6 +22,32 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Text="YourCases" FontSize="40" />
+
+        <TextBlock Grid.Row="1" Grid.Column="1" FontWeight="Bold" Text="YourCases: "/>
+        <DataGrid x:Name="Reports" Grid.Row="3" Grid.Column="1" MinWidth="800" MinHeight="450"
+                  IsReadOnly="True" MaxWidth="950" MaxHeight="600"
+                  AutoGenerateColumns="False" HorizontalScrollBarVisibility="Auto" CanUserSortColumns="True"
+                  SelectedItem="{Binding SelectedReport}" SelectionUnit="FullRow">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Project" Binding="{Binding ProjectName}"/>
+                <DataGridTextColumn Header="Topic" Binding="{Binding Topic}"/>
+                <DataGridTextColumn Header="Category" Binding="{Binding CategoryName}"/>
+                <DataGridTextColumn Header="Priority" Binding="{Binding PriorityName}"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding StatusName}"/>
+                <DataGridTextColumn Header="Created" Binding="{Binding CreatedDate, StringFormat=d-M-yyyy}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+                    HorizontalAlignment="Left">
+            <Label Margin="10">Filter:</Label>
+            <ComboBox x:Name="FilterCB" Margin="10" MinWidth="200" SelectedItem="{Binding Filter}" />
+            <TextBox x:Name="FilterText" Margin="10" MinWidth="200" MaxWidth="500"/>
+            <Button x:Name="ApplyFilter" Margin="10">Apply filter</Button>
+        </StackPanel>
+
+        <Button x:Name="OpenSelected" Grid.Row="3" Grid.Column="2" Margin="10" 
+                MaxHeight="100">Open selected</Button>
     </Grid>
 </UserControl>

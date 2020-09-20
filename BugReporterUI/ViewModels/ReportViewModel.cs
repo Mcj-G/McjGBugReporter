@@ -127,7 +127,8 @@ namespace BugReporterUI.ViewModels
 
             await _bugEndpoint.UpdateAssignedUser(idList);
 
-            MessageBox.Show("You are now assigned to this case.", "Mcjg Bug Reporter", MessageBoxButton.OK, MessageBoxImage.Information);
+            await AddNewComment($"{ _loggedUser.EmailAddress } is now assigned to this case",
+                "You are now assigned to this case.");
 
             await RefreshReport();
         }
@@ -155,7 +156,7 @@ namespace BugReporterUI.ViewModels
         {
             await _statusEndpoint.UpdateStatus(Report.Id, NewStatus.Id);
 
-            MessageBox.Show("Status changed!", "Mcjg Bug Reporter", MessageBoxButton.OK, MessageBoxImage.Information);
+            await AddNewComment($"Status changed to { NewStatus.Name } by { _loggedUser.EmailAddress }", "Status changed!");
 
             await RefreshReport();
         }
@@ -174,23 +175,30 @@ namespace BugReporterUI.ViewModels
         }
         public async Task AddComment()
         {
-            CommentModel comment = new CommentModel
-            {
-                BugId = Report.Id,
-                Content = NewComment
-            };
-
-            await _commentEndpoint.PostComment(comment);
-
-            MessageBox.Show("Comment added!", "Mcjg Bug Reporter", MessageBoxButton.OK, MessageBoxImage.Information);
+            await AddNewComment(NewComment, "Comment added!");
 
             NewComment = null;
-
-            await LoadData();
 
             NotifyOfPropertyChange(() => CommentsList);
             NotifyOfPropertyChange(() => NewComment);
             NotifyOfPropertyChange(() => CanAddComment);
+        }
+
+        private async Task AddNewComment(string content, string msg)
+        {
+            content = $"{ DateTime.Now.ToShortDateString() }: { content }";
+
+            CommentModel comment = new CommentModel
+            {
+                BugId = Report.Id,
+                Content = content
+            };
+
+            await _commentEndpoint.PostComment(comment);
+
+            MessageBox.Show($"{ msg }", "Mcjg Bug Reporter", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            await LoadData();
         }
 
         public void Handle(OpenReportEvent message)

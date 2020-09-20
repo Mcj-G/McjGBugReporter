@@ -6,7 +6,7 @@ begin
 	set nocount on;
 
 	update dbo.Bug
-	set StatusId = @NewStatusId
+	set StatusId = @NewStatusId, LastModificationDate = GETDATE()
 	where Id = @BugId;
 
 end

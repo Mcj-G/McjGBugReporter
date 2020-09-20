@@ -11,4 +11,7 @@ begin
 
 	select @Id = SCOPE_IDENTITY();
 
+	update dbo.Bug
+	set LastModificationDate = GETDATE()
+	where Id = @BugId;
 end

@@ -23,7 +23,8 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <DataGrid x:Name="Reports" Grid.Row="2" Grid.Column="1" MinWidth="800" MinHeight="500"
+        <TextBlock Grid.Row="1" Grid.Column="1" FontWeight="Bold" Text="All reports: "/>
+        <DataGrid x:Name="Reports" Grid.Row="3" Grid.Column="1" MinWidth="800" MinHeight="500"
                   IsReadOnly="True" MaxWidth="950" MaxHeight="600"
                   AutoGenerateColumns="False" HorizontalScrollBarVisibility="Auto" CanUserSortColumns="True"
                   SelectedItem="{Binding SelectedReport}" SelectionUnit="FullRow">
@@ -38,7 +39,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
                     HorizontalAlignment="Left">
             <Label Margin="10">Filter: </Label>
             <ComboBox x:Name="FilterCB" Margin="10" MinWidth="200" SelectedItem="{Binding Filter}" />
@@ -46,7 +47,7 @@
             <Button x:Name="ApplyFilter" Margin="10">Apply filter</Button>
         </StackPanel>
 
-        <Button x:Name="OpenSelected" Grid.Row="2" Grid.Column="2" Margin="10" 
+        <Button x:Name="OpenSelected" Grid.Row="3" Grid.Column="2" Margin="10" 
                 MaxHeight="100">Open selected</Button>
         
     </Grid>
