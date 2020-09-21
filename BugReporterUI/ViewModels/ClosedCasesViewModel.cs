@@ -11,17 +11,15 @@ using WPFBR.Library.Models;
 
 namespace BugReporterUI.ViewModels
 {
-    public class YourCasesViewModel : Screen
+    public class ClosedCasesViewModel : Screen
     {
         private IBugEndpoint _bugEndpoint;
         private IEventAggregator _events;
-        private ILoggedInUserModel _loggedUser;
 
-        public YourCasesViewModel(IBugEndpoint bugEndpoint, IEventAggregator events, ILoggedInUserModel loggedUser)
+        public ClosedCasesViewModel(IBugEndpoint bugEndpoint, IEventAggregator events)
         {
             _bugEndpoint = bugEndpoint;
             _events = events;
-            _loggedUser = loggedUser;
         }
 
         protected override async void OnViewLoaded(object view)
@@ -34,8 +32,7 @@ namespace BugReporterUI.ViewModels
         {
             var reports = await _bugEndpoint.GetAll();
 
-            reports = reports.Where(x => 
-            x.AssignedUserMail == _loggedUser.EmailAddress && x.StatusName != "Closed").ToList();
+            reports = reports.Where(x => x.StatusName == "Closed").ToList();
 
             Reports = new BindingList<BugDisplayModel>(reports);
         }

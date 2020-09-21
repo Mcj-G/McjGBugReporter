@@ -48,6 +48,7 @@
     <Compile Include="DataAccess\BugData.cs" />
     <Compile Include="DataAccess\CommentData.cs" />
     <Compile Include="DataAccess\ListsData.cs" />
+    <Compile Include="DataAccess\ProjectData.cs" />
     <Compile Include="DataAccess\SqlDataAccess.cs" />
     <Compile Include="DataAccess\StatusData.cs" />
     <Compile Include="DataAccess\UserData.cs" />

@@ -83,6 +83,9 @@
     <Build Include="dbo\Stored Procedures\spComment_GetById.sql" />
     <Build Include="dbo\Stored Procedures\spBug_StatusUpdate.sql" />
     <Build Include="dbo\Stored Procedures\spBug_AssignedUserUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\spProject_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spProject_Update.sql" />
+    <Build Include="dbo\Stored Procedures\spProject_Delete.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Publish Locations\BugReporterData.publish.xml" />

@@ -32,7 +32,8 @@ namespace BugReporterUI
                 .PerRequest<IListsEndpoint, ListsEndpoint>()
                 .PerRequest<IBugEndpoint, BugEndpoint>()
                 .PerRequest<ICommentEndpoint, CommentEndpoint>()
-                .PerRequest<IStatusEndpoint, StatusEndpoint>();
+                .PerRequest<IStatusEndpoint, StatusEndpoint>()
+                .PerRequest<IProjectEndpoint, ProjectEndpoint>();
 
             _container
                 .Singleton<IWindowManager, WindowManager>()

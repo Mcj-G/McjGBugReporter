@@ -32,7 +32,7 @@
 
         <Button x:Name="YourCases" Grid.Column="1" Grid.Row="3" MinWidth="250" MinHeight="120" Margin="50">YOUR CASES</Button>
 
-        <Button x:Name="Manage" Grid.Column="2" Grid.Row="3" MinWidth="250" MinHeight="120" Margin="50">MANAGE</Button>
+        <Button x:Name="ClosedCases" Grid.Column="2" Grid.Row="3" MinWidth="250" MinHeight="120" Margin="50">CLOSED CASES</Button>
 
     </Grid>
 </UserControl>

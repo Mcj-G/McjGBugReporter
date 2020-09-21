@@ -32,9 +32,9 @@ namespace BugReporterUI.ViewModels
             _events.PublishOnUIThread(new YourCasesEvent());
         }
 
-        public void Manage()
+        public void ClosedCases()
         {
-
+            _events.PublishOnUIThread(new ClosedCasesEvent());
         }
     }
 }

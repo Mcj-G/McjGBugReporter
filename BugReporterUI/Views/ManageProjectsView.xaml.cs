@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace BugReporterUI.Views
 {
     /// <summary>
-    /// Interaction logic for ManageView.xaml
+    /// Interaction logic for ManageProjectsView.xaml
     /// </summary>
-    public partial class ManageView : UserControl
+    public partial class ManageProjectsView : UserControl
     {
-        public ManageView()
+        public ManageProjectsView()
         {
             InitializeComponent();
         }

@@ -73,27 +73,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EventModels\ClosedCasesEvent.cs" />
     <Compile Include="EventModels\LogOnEvent.cs" />
     <Compile Include="EventModels\NewReportEvent.cs" />
     <Compile Include="EventModels\OpenReportEvent.cs" />
     <Compile Include="EventModels\ReportListEvent.cs" />
     <Compile Include="EventModels\YourCasesEvent.cs" />
     <Compile Include="Helpers\PasswordBoxHelper.cs" />
+    <Compile Include="ViewModels\ClosedCasesViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\ManageProjectsViewModel.cs" />
     <Compile Include="ViewModels\NewReportViewModel.cs" />
     <Compile Include="ViewModels\ReportListViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\YourCasesViewModel.cs" />
+    <Compile Include="Views\ClosedCasesView.xaml.cs">
+      <DependentUpon>ClosedCasesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ManageView.xaml.cs">
-      <DependentUpon>ManageView.xaml</DependentUpon>
+    <Compile Include="Views\ManageProjectsView.xaml.cs">
+      <DependentUpon>ManageProjectsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NewReportView.xaml.cs">
       <DependentUpon>NewReportView.xaml</DependentUpon>
@@ -115,6 +121,10 @@
     <Compile Include="Views\YourCasesView.xaml.cs">
       <DependentUpon>YourCasesView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\ClosedCasesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,7 +133,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ManageView.xaml">
+    <Page Include="Views\ManageProjectsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

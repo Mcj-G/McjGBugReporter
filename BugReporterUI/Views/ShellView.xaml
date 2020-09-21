@@ -12,8 +12,8 @@
                 <MenuItem x:Name="BackToMainView" Header="_Back to Main View" />
                 <MenuItem x:Name="ExitApplication" Header="E_xit" />
             </MenuItem>
-            <MenuItem Header="_Account">
-                <MenuItem x:Name="LoginScreen" Header="_Log In" />
+            <MenuItem Header="_Projects">
+                <MenuItem x:Name="ManageProjects" Header="_Add or modify project" />
             </MenuItem>
         </Menu>
         <Grid>

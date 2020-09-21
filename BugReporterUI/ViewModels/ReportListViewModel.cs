@@ -33,6 +33,8 @@ namespace BugReporterUI.ViewModels
         {
             var reports = await _bugEndpoint.GetAll();
 
+            reports = reports.Where(x => x.StatusName != "Closed").ToList();
+
             Reports = new BindingList<BugDisplayModel>(reports);
         }
 

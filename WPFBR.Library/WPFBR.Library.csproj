@@ -55,8 +55,10 @@
     <Compile Include="API\IBugEndpoint.cs" />
     <Compile Include="API\ICommentEndpoint.cs" />
     <Compile Include="API\IListsEndpoint.cs" />
+    <Compile Include="API\IProjectEndpoint.cs" />
     <Compile Include="API\IStatusEndpoint.cs" />
     <Compile Include="API\ListsEndpoint.cs" />
+    <Compile Include="API\ProjectEndpoint.cs" />
     <Compile Include="API\StatusEndpoint.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
     <Compile Include="Models\BugDisplayModel.cs" />

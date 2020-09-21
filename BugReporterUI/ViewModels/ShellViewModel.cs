@@ -10,7 +10,7 @@ namespace BugReporterUI.ViewModels
 {
     public class ShellViewModel : Conductor<object>, IHandle<LogOnEvent>, 
         IHandle<NewReportEvent>, IHandle<ReportListEvent>, IHandle<OpenReportEvent>, 
-        IHandle<YourCasesEvent>
+        IHandle<YourCasesEvent>, IHandle<ClosedCasesEvent>
     {
         private IEventAggregator _events;
         private MainViewModel _mainVM;
@@ -18,11 +18,15 @@ namespace BugReporterUI.ViewModels
         private ReportListViewModel _reportListVM;
         private ReportViewModel _reportVM;
         private YourCasesViewModel _yourCasesVM;
+        private ClosedCasesViewModel _closedCasesVM;
+        private ManageProjectsViewModel _manageProjectsVM;
         private SimpleContainer _container;
 
         public ShellViewModel(IEventAggregator events, MainViewModel mainVM,
             NewReportViewModel newReportVM, ReportListViewModel reportListVM,
-            ReportViewModel reportVM, YourCasesViewModel yourCasesVM, SimpleContainer container)
+            ReportViewModel reportVM, YourCasesViewModel yourCasesVM, 
+            ClosedCasesViewModel closedCasesVM, ManageProjectsViewModel manageProjectsVM,
+            SimpleContainer container)
         {
             _events = events;
             _mainVM = mainVM;
@@ -30,6 +34,8 @@ namespace BugReporterUI.ViewModels
             _reportListVM = reportListVM;
             _reportVM = reportVM;
             _yourCasesVM = yourCasesVM;
+            _closedCasesVM = closedCasesVM;
+            _manageProjectsVM = manageProjectsVM;
             _container = container;
 
             _events.Subscribe(this);
@@ -45,6 +51,11 @@ namespace BugReporterUI.ViewModels
         public void BackToMainView()
         {
             ActivateItem(_mainVM);
+        }
+
+        public void ManageProjects()
+        {
+            ActivateItem(_manageProjectsVM);
         }
 
         public void Handle(LogOnEvent message)
@@ -70,6 +81,11 @@ namespace BugReporterUI.ViewModels
         public void Handle(YourCasesEvent message)
         {
             ActivateItem(_yourCasesVM);
+        }
+
+        public void Handle(ClosedCasesEvent message)
+        {
+            ActivateItem(_closedCasesVM);
         }
     }
 }
