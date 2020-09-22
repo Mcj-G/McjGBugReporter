@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BugReporterUI.EventModels;
 using Caliburn.Micro;
+using WPFBR.Library.Models;
 
 namespace BugReporterUI.ViewModels
 {
@@ -21,12 +22,13 @@ namespace BugReporterUI.ViewModels
         private ClosedCasesViewModel _closedCasesVM;
         private ManageProjectsViewModel _manageProjectsVM;
         private SimpleContainer _container;
+        private ILoggedInUserModel _loggedUser;
 
         public ShellViewModel(IEventAggregator events, MainViewModel mainVM,
             NewReportViewModel newReportVM, ReportListViewModel reportListVM,
             ReportViewModel reportVM, YourCasesViewModel yourCasesVM, 
             ClosedCasesViewModel closedCasesVM, ManageProjectsViewModel manageProjectsVM,
-            SimpleContainer container)
+            SimpleContainer container, ILoggedInUserModel loggedUser)
         {
             _events = events;
             _mainVM = mainVM;
@@ -37,12 +39,28 @@ namespace BugReporterUI.ViewModels
             _closedCasesVM = closedCasesVM;
             _manageProjectsVM = manageProjectsVM;
             _container = container;
-
+            _loggedUser = loggedUser;
             _events.Subscribe(this);
             
             ActivateItem(_container.GetInstance<LoginViewModel>());
             
         }
+
+        public bool IsLoggedIn
+        {
+            get
+            {
+                bool output = false;
+
+                if (string.IsNullOrWhiteSpace(_loggedUser.Token) == false)
+                {
+                    output = true;
+                }
+
+                return output;
+            }
+        }
+
         public void ExitApplication()
         {
             TryClose();
@@ -61,6 +79,7 @@ namespace BugReporterUI.ViewModels
         public void Handle(LogOnEvent message)
         {
             ActivateItem(_mainVM);
+            NotifyOfPropertyChange(() => IsLoggedIn);
         }
 
         public void Handle(NewReportEvent message)
